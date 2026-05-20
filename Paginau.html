@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaludNova</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef5fa;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    background:linear-gradient(135deg,#0096d6,#00bfff);
+    padding:18px 30px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    transform:scale(1.1);
+    color:#dff7ff;
+}
+
+/* ===== CARRUSEL ===== */
+
+#carouselExample{
+    margin-top:25px;
+}
+
+.carousel{
+    width:92%;
+    margin:auto;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+.carousel-img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+}
+
+/* ===== BIENVENIDA ===== */
+
+.bienvenida{
+    width:90%;
+    margin:50px auto;
+    background:white;
+    padding:45px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.bienvenida h1{
+    color:#0096d6;
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.bienvenida p{
+    font-size:19px;
+    line-height:1.8;
+    color:#555;
+}
+
+/* ===== TARJETAS ===== */
+
+.contenedor{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin:50px auto;
+    flex-wrap:wrap;
+    width:92%;
+}
+
+.cuadro{
+    width:340px;
+    height:210px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.5s;
+    cursor:pointer;
+    padding:25px;
+    position:relative;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.cuadro::before{
+    content:"";
+    width:100%;
+    height:8px;
+    background:#00a8f0;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.cuadro:hover{
+    transform:translateY(-8px);
+}
+
+.cuadro.activo{
+    height:390px;
+}
+
+.titulo{
+    font-size:30px;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:20px;
+    color:#0096d6;
+}
+
+.icono{
+    font-size:55px;
+    text-align:center;
+    margin-bottom:20px;
+    color:#00a8f0;
+}
+
+.contenido{
+    opacity:0;
+    transition:0.4s;
+    text-align:center;
+}
+
+.cuadro.activo .contenido{
+    opacity:1;
+}
+
+.contenido p{
+    color:#555;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* ===== SERVICIOS ===== */
+
+.servicios{
+    width:92%;
+    margin:60px auto;
+    background:white;
+    border-radius:25px;
+    padding:45px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.servicios h1{
+    text-align:center;
+    color:#0096d6;
+    margin-bottom:35px;
+    font-size:42px;
+}
+
+.lista{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.item{
+    background:#f3fbff;
+    border-radius:18px;
+    padding:25px;
+    transition:0.3s;
+    text-align:center;
+}
+
+.item:hover{
+    transform:scale(1.04);
+    background:#dcf5ff;
+}
+
+.item i{
+    font-size:45px;
+    color:#0096d6;
+    margin-bottom:15px;
+}
+
+.item h3{
+    color:#0096d6;
+    margin-bottom:12px;
+}
+
+/* ===== REDES ===== */
+
+.redes{
+    margin-top:70px;
+    background:linear-gradient(135deg,#0096d6,#00bfff);
+    padding:45px;
+    text-align:center;
+    color:white;
+}
+
+.redes h1{
+    margin-bottom:25px;
+    font-size:40px;
+}
+
+.social{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.social a{
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,0.15);
+    padding:18px 28px;
+    border-radius:18px;
+    transition:0.3s;
+    font-size:18px;
+}
+
+.social a:hover{
+    background:white;
+    color:#0096d6;
+    transform:translateY(-6px);
+}
+
+.social i{
+    margin-right:10px;
+}
+
+</style>
+
+<script>
+
+function activar(elemento){
+
+    elemento.classList.toggle("activo");
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <a href="index.html">Inicio</a>
+    <a href="paginau.html">Descripcion</a>
+    <a href="productos">Promociones</a>
+    <a href="#">Servicios</a>
+
+</div>
+
+<!-- CARRUSEL -->
+
+<div id="carouselExample" class="carousel slide" data-ride="carousel">
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+
+            <img src="hola2.jpg"
+            class="carousel-img">
+
+        </div>
+
+        <div class="carousel-item">
+
+            <img src="hola3.jpg"
+            class="carousel-img">
+
+        </div>
+
+        <div class="carousel-item">
+
+            <img src="https://wallpapers.com/images/hd/argentina-national-football-team-leo-messi-gn72gehgg0w7js72.jpg"
+            class="carousel-img">
+
+        </div>
+
+    </div>
+
+    <a class="carousel-control-prev"
+    href="#carouselExample"
+    role="button"
+    data-slide="prev">
+
+        <span class="carousel-control-prev-icon"></span>
+
+    </a>
+
+    <a class="carousel-control-next"
+    href="#carouselExample"
+    role="button"
+    data-slide="next">
+
+        <span class="carousel-control-next-icon"></span>
+
+    </a>
+
+</div>
+
+<!-- BIENVENIDA -->
+
+<div class="bienvenida">
+
+    <h1>Bienvenido a SaludNova</h1>
+
+    <p>
+        En SaludNova nos dedicamos a brindar medicamentos,
+        vitaminas y productos de salud con la mejor calidad.
+        Nuestro objetivo es ofrecer atención moderna,
+        rápida y segura para cuidar de ti y de tu familia.
+    </p>
+
+</div>
+
+<!-- TARJETAS -->
+
+<div class="contenedor">
+
+    <div class="cuadro" onclick="activar(this)">
+
+        <div class="icono">
+            <i class="fas fa-heartbeat"></i>
+        </div>
+
+        <div class="titulo">
+            Misión
+        </div>
+
+        <div class="contenido">
+
+            <p>
+                Nuestra misión es ofrecer medicamentos y servicios
+                farmacéuticos de calidad, garantizando confianza,
+                atención profesional y bienestar para cada cliente.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="cuadro" onclick="activar(this)">
+
+        <div class="icono">
+            <i class="fas fa-eye"></i>
+        </div>
+
+        <div class="titulo">
+            Visión
+        </div>
+
+        <div class="contenido">
+
+            <p>
+                Ser la farmacia líder e innovadora en Guatemala,
+                reconocida por su excelente servicio,
+                tecnología moderna y compromiso con la salud.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="cuadro" onclick="activar(this)">
+
+        <div class="icono">
+            <i class="fas fa-hospital"></i>
+        </div>
+
+        <div class="titulo">
+            Historia
+        </div>
+
+        <div class="contenido">
+
+            <p>
+                SaludNova nació con la idea de crear una farmacia
+                moderna y accesible, enfocada en brindar soluciones
+                rápidas y productos confiables para todas las familias.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SERVICIOS -->
+
+<div class="servicios">
+
+    <h1>Nuestros Servicios</h1>
+
+    <div class="lista">
+
+        <div class="item">
+
+            <i class="fas fa-pills"></i>
+
+            <h3>Medicamentos</h3>
+
+            <p>
+                Productos certificados y de calidad.
+            </p>
+
+        </div>
+
+        <div class="item">
+
+            <i class="fas fa-truck"></i>
+
+            <h3>Entrega Rápida</h3>
+
+            <p>
+                Servicio rápido y seguro a domicilio.
+            </p>
+
+        </div>
+
+        <div class="item">
+
+            <i class="fas fa-capsules"></i>
+
+            <h3>Vitaminas</h3>
+
+            <p>
+                Vitaminas y suplementos para tu bienestar.
+            </p>
+
+        </div>
+
+        <div class="item">
+
+            <i class="fas fa-percent"></i>
+
+            <h3>Promociones</h3>
+
+            <p>
+                Descuentos especiales cada semana.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- REDES -->
+
+<div class="redes">
+
+    <h1>Síguenos</h1>
+
+    <div class="social">
+
+        <a href="#">
+            <i class="fab fa-instagram"></i>
+            cerb_15
+        </a>
+
+        <a href="#">
+            <i class="fab fa-facebook-f"></i>
+            cerb_15
+        </a>
+
+        <a href="#">
+            <i class="fab fa-tiktok"></i>
+            cerb_15
+        </a>
+
+        <a href="#">
+            <i class="fab fa-x-twitter"></i>
+            cerb_15
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
