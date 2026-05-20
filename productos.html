@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Productos - SaludNova</title>
+
+<!-- ICONOS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef5fa;
+}
+
+/* ===== HEADER ===== */
+
+.header{
+    background:linear-gradient(135deg,#0096d6,#00bfff);
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.15);
+}
+
+.header h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.header p{
+    font-size:20px;
+}
+
+/* ===== PROMOCIONES ===== */
+
+.promociones{
+    width:92%;
+    margin:50px auto;
+}
+
+.promociones h2{
+    text-align:center;
+    color:#0096d6;
+    font-size:42px;
+    margin-bottom:35px;
+}
+
+.promos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.promo{
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+    position:relative;
+}
+
+.promo:hover{
+    transform:translateY(-8px);
+}
+
+.descuento{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:red;
+    color:white;
+    padding:10px 15px;
+    border-radius:15px;
+    font-weight:bold;
+}
+
+.promo img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.promo-info{
+    padding:25px;
+}
+
+.promo-info h3{
+    color:#0096d6;
+    margin-bottom:10px;
+}
+
+.precio{
+    margin-top:15px;
+}
+
+.precio span{
+    text-decoration:line-through;
+    color:gray;
+    margin-right:10px;
+}
+
+.precio strong{
+    color:#00a651;
+    font-size:24px;
+}
+
+/* ===== PRODUCTOS ===== */
+
+.productos{
+    width:92%;
+    margin:70px auto;
+}
+
+.productos h2{
+    text-align:center;
+    color:#0096d6;
+    font-size:42px;
+    margin-bottom:35px;
+}
+
+.productos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.producto{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 18px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.producto:hover{
+    transform:scale(1.04);
+}
+
+.producto i{
+    font-size:55px;
+    color:#0096d6;
+    margin-bottom:20px;
+}
+
+.producto h3{
+    color:#0096d6;
+    margin-bottom:12px;
+}
+
+.producto p{
+    color:#555;
+    line-height:1.7;
+}
+
+/* ===== CATEGORIAS ===== */
+
+.categorias{
+    width:92%;
+    margin:60px auto;
+    background:white;
+    padding:45px;
+    border-radius:25px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+
+.categorias h2{
+    text-align:center;
+    color:#0096d6;
+    margin-bottom:35px;
+    font-size:40px;
+}
+
+.lista{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.lista div{
+    background:#dff5ff;
+    color:#0096d6;
+    padding:18px 30px;
+    border-radius:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.lista div:hover{
+    background:#0096d6;
+    color:white;
+    transform:translateY(-5px);
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    margin-top:70px;
+    background:linear-gradient(135deg,#0096d6,#00bfff);
+    color:white;
+    text-align:center;
+    padding:45px;
+}
+
+.footer h2{
+    margin-bottom:20px;
+    font-size:38px;
+}
+
+.redes{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.redes a{
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,0.15);
+    padding:16px 25px;
+    border-radius:18px;
+    transition:0.3s;
+    font-size:18px;
+}
+
+.redes a:hover{
+    background:white;
+    color:#0096d6;
+}
+
+.redes i{
+    margin-right:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <h1>Productos SaludNova</h1>
+
+    <p>
+        Calidad, salud y bienestar para toda tu familia
+    </p>
+
+</div>
+
+<!-- PROMOCIONES -->
+
+<div class="promociones">
+
+    <h2>Promociones Especiales</h2>
+
+    <div class="promos-grid">
+
+        <div class="promo">
+
+            <div class="descuento">
+                -30%
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae">
+
+            <div class="promo-info">
+
+                <h3>Vitaminas Premium</h3>
+
+                <p>
+                    Refuerza tu sistema inmunológico con nuestras vitaminas.
+                </p>
+
+                <div class="precio">
+                    <span>Q250</span>
+                    <strong>Q175</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="promo">
+
+            <div class="descuento">
+                -20%
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2">
+
+            <div class="promo-info">
+
+                <h3>Combo Familiar</h3>
+
+                <p>
+                    Jarabes, vitaminas y medicamentos esenciales.
+                </p>
+
+                <div class="precio">
+                    <span>Q350</span>
+                    <strong>Q280</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="promo">
+
+            <div class="descuento">
+                -15%
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88">
+
+            <div class="promo-info">
+
+                <h3>Medicamentos</h3>
+
+                <p>
+                    Descuento especial en medicamentos seleccionados.
+                </p>
+
+                <div class="precio">
+                    <span>Q120</span>
+                    <strong>Q99</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PRODUCTOS -->
+
+<div class="productos">
+
+    <h2>Nuestros Productos</h2>
+
+    <div class="productos-grid">
+
+        <div class="producto">
+
+            <i class="fas fa-pills"></i>
+
+            <h3>Medicamentos</h3>
+
+            <p>
+                Productos farmacéuticos certificados y seguros.
+            </p>
+
+        </div>
+
+        <div class="producto">
+
+            <i class="fas fa-capsules"></i>
+
+            <h3>Vitaminas</h3>
+
+            <p>
+                Vitaminas y suplementos para fortalecer tu salud.
+            </p>
+
+        </div>
+
+        <div class="producto">
+
+            <i class="fas fa-heartbeat"></i>
+
+            <h3>Cuidado Personal</h3>
+
+            <p>
+                Productos para higiene y bienestar diario.
+            </p>
+
+        </div>
+
+        <div class="producto">
+
+            <i class="fas fa-syringe"></i>
+
+            <h3>Equipo Médico</h3>
+
+            <p>
+                Equipos básicos y productos de control médico.
+            </p>
+
+        </div>
+
+        <div class="producto">
+
+            <i class="fas fa-baby"></i>
+
+            <h3>Productos Infantiles</h3>
+
+            <p>
+                Fórmulas, vitaminas y productos para bebés.
+            </p>
+
+        </div>
+
+        <div class="producto">
+
+            <i class="fas fa-leaf"></i>
+
+            <h3>Productos Naturales</h3>
+
+            <p>
+                Opciones naturales y suplementos herbales.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CATEGORIAS -->
+
+<div class="categorias">
+
+    <h2>Categorías Destacadas</h2>
+
+    <div class="lista">
+
+        <div>Vitaminas</div>
+        <div>Jarabes</div>
+        <div>Analgésicos</div>
+        <div>Antigripales</div>
+        <div>Cuidado Facial</div>
+        <div>Suplementos</div>
+        <div>Productos Naturales</div>
+        <div>Control Médico</div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    <h2>SaludNova</h2>
+
+    <p>
+        Tu salud, nuestra prioridad
+    </p>
+
+    <div class="redes">
+
+        <a href="#">
+            <i class="fab fa-instagram"></i>
+            cerb_15
+        </a>
+
+        <a href="#">
+            <i class="fab fa-facebook-f"></i>
+            cerb_15
+        </a>
+
+        <a href="#">
+            <i class="fab fa-tiktok"></i>
+            cerb_15
+        </a>
+
+        <a href="#">
+            <i class="fab fa-x-twitter"></i>
+            cerb_15
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
